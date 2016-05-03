@@ -40,15 +40,4 @@ public class PedidoController {
 		Item item = itens.stream().filter(item2 -> item2.isProdutoDeLimpeza()).findAny().get();
 		item.aplicarDesconto(desconto);
 	}
-	
-	public static void main(String[] args) {
-		PedidoController pedidoController = new PedidoController();
-		Pedido pedido = new PedidoDAO().buscarPedido(1L);
-		pedidoController.salvarPedidoDeLimpeza(pedido);
-		List<Item> itens = pedido.getItens();
-		System.out.println(itens);
-		System.out.println(pedidoController.buscarItemMaisBarato(itens));
-		pedidoController.aplicarDescontoEmAlgumItemDeLimpeza(itens, 1.99);
-		System.out.println(itens);
-	}
 }
